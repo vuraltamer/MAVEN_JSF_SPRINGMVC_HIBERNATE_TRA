@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition>
+
+		<h:form id="menu">
+			<p:menubar>
+				<p:submenu label="Kategoriler" icon="ui-icon-document">
+					<p:submenu label="Kategori1" icon="ui-icon-contact">
+					</p:submenu>
+					<p:menuitem value="Kategori2" url="#" />
+					<p:menuitem value="Kategori3" url="#" />
+				</p:submenu>
+
+				<f:facet name="options">
+					<p:outputLabel  value="#{loginController.getLoginName()}"></p:outputLabel>
+					<p:commandButton id="loginb" type="button" rendered="#{loginController.loginButtonRender == 'false'}" value="Login" icon="ui-icon-extlink" onclick="PF('dlg').show();" />
+					<p:button id="logoutb" rendered="#{loginController.loginButtonRender == 'true'}" type="button" value="Logout" icon="ui-icon-extlink" actionListener="#{loginController.logout}" update="menu" />
+				</f:facet>
+			</p:menubar>
+		</h:form>
+
+		<h:form id="login">
+			<p:dialog header="Login" widgetVar="dlg" resizable="false">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel for="username" value="Username:" />
+					<p:inputText id="username" value="#{loginController.username}"
+						required="true" label="username" />
+
+					<h:outputLabel for="password" value="Password:" />
+					<p:password id="password" value="#{loginController.password}"
+						required="true" label="password" />
+
+					<f:facet name="footer">
+						<p:commandButton value="Login" update="menu" actionListener="#{loginController.login}" onclick="PF('dlg').hide()" oncomplete="handleLoginRequest(xhr, status, args)" />
+					</f:facet>
+				</h:panelGrid>
+			</p:dialog>
+		</h:form>
+
+
+	</ui:composition>
+
+
+	<script type="text/javascript">
+		function handleLoginRequest(xhr, status, args) {
+			if (args.validationFailed || !args.loggedIn) {
+				PF('dlg').jq.effect("shake", {
+					times : 5
+				}, 100);
+			} else {
+				PF('dlg').hide();
+				$('#loginLink').fadeOut();
+			}
+		}
+		
+		function hideOut(){
+			PF('dlg').hide();
+			PF('loginb').hide();
+		}
+	</script>
+</body>
+</html>
+

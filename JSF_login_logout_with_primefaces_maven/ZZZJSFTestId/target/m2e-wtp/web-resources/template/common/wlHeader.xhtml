@@ -19,10 +19,9 @@
 				</p:submenu>
 
 				<f:facet name="options">
-					<p:inputText style="margin-right:10px" placeholder="Search" />
-					<p:outputLabel value="#{userBean.username}"></p:outputLabel>
-					<p:commandButton id="loginb" type="button" rendered="#{userBean.render == 'false'}" value="Login" icon="ui-icon-extlink" onclick="PF('dlg').show();" />
-					<p:button id="logoutb" rendered="#{userBean.render == 'true'}" type="button" value="Logout" icon="ui-icon-extlink" actionListener="#{userBean.logout}" update="menu" />
+					<p:outputLabel  value="#{loginController.getLoginName()}"></p:outputLabel>
+					<p:commandButton id="loginb" type="button" rendered="#{loginController.loginButtonRender == 'false'}" value="Login" icon="ui-icon-extlink" onclick="PF('dlg').show();" />
+					<p:button id="logoutb" rendered="#{loginController.loginButtonRender == 'true'}" type="button" value="Logout" icon="ui-icon-extlink" actionListener="#{loginController.logout}" update="menu" />
 				</f:facet>
 			</p:menubar>
 		</h:form>
@@ -31,15 +30,15 @@
 			<p:dialog header="Login" widgetVar="dlg" resizable="false">
 				<h:panelGrid columns="2" cellpadding="5">
 					<h:outputLabel for="username" value="Username:" />
-					<p:inputText id="username" value="#{userBean.username}"
+					<p:inputText id="username" value="#{loginController.username}"
 						required="true" label="username" />
 
 					<h:outputLabel for="password" value="Password:" />
-					<p:password id="password" value="#{userBean.password}"
+					<p:password id="password" value="#{loginController.password}"
 						required="true" label="password" />
 
 					<f:facet name="footer">
-						<p:commandButton value="Login" update="menu" actionListener="#{userBean.login}" onclick="PF('dlg').hide()" oncomplete="handleLoginRequest(xhr, status, args)" />
+						<p:commandButton value="Login" update="menu" actionListener="#{loginController.login}" onclick="PF('dlg').hide()" oncomplete="handleLoginRequest(xhr, status, args)" />
 					</f:facet>
 				</h:panelGrid>
 			</p:dialog>
@@ -68,5 +67,4 @@
 	</script>
 </body>
 </html>
-
 
