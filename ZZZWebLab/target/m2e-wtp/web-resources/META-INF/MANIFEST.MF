@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Built-By: tamer.vural
+Class-Path: lib/rewrite-servlet-2.0.12.Final.jar lib/rewrite-config-pr
+ ettyfaces-2.0.12.Final.jar lib/rewrite-annotations-impl-2.0.12.Final.
+ jar lib/rewrite-api-2.0.12.Final.jar lib/common-api-1.0.5.Final.jar l
+ ib/logging-api-1.0.2.Final.jar lib/rewrite-api-servlet-2.0.12.Final.j
+ ar lib/rewrite-addressbuilder-2.0.12.Final.jar lib/rewrite-annotation
+ s-api-2.0.12.Final.jar lib/rewrite-integration-faces-2.0.12.Final.jar
+  lib/mysql-connector-java-5.1.8.jar lib/jsf-impl-2.2.4.jar lib/jsf-ap
+ i-2.2.4.jar lib/el-api-2.2.jar lib/primefaces-5.2.7.jar lib/javax.ser
+ vlet.jsp-api-2.3.1.jar lib/jstl-1.2.jar lib/spring-core-4.0.0.RELEASE
+ .jar lib/commons-logging-1.1.1.jar lib/spring-web-4.0.0.RELEASE.jar l
+ ib/aopalliance-1.0.jar lib/spring-aop-4.0.0.RELEASE.jar lib/spring-be
+ ans-4.0.0.RELEASE.jar lib/spring-context-4.0.0.RELEASE.jar lib/spring
+ -webmvc-4.0.0.RELEASE.jar lib/spring-expression-4.0.0.RELEASE.jar
+Build-Jdk: 1.8.0_72
+Created-By: Maven Integration for Eclipse
+
